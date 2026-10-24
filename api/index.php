@@ -4,6 +4,33 @@
  * Vercel Serverless Function Entry Point for Laravel
  */
 
+// Check if request is for a static asset inside /public/
+$uri = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?? '';
+$publicFile = __DIR__ . '/../public' . $uri;
+
+if (!empty($uri) && $uri !== '/' && file_exists($publicFile) && !is_dir($publicFile)) {
+    $ext = strtolower(pathinfo($publicFile, PATHINFO_EXTENSION));
+    $mime = match ($ext) {
+        'css' => 'text/css; charset=utf-8',
+        'js' => 'application/javascript; charset=utf-8',
+        'json' => 'application/json',
+        'svg' => 'image/svg+xml',
+        'png' => 'image/png',
+        'jpg', 'jpeg' => 'image/jpeg',
+        'gif' => 'image/gif',
+        'ico' => 'image/x-icon',
+        'woff' => 'font/woff',
+        'woff2' => 'font/woff2',
+        default => 'application/octet-stream',
+    };
+
+    header('Content-Type: ' . $mime);
+    header('Cache-Control: public, max-age=31536000, immutable');
+    header('Content-Length: ' . filesize($publicFile));
+    readfile($publicFile);
+    exit;
+}
+
 $tmpDirs = [
     '/tmp/storage/app/public',
     '/tmp/storage/framework/cache/data',
