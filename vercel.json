@@ -1,6 +1,8 @@
 {
   "version": 2,
   "framework": null,
+  "buildCommand": "npm run build",
+  "outputDirectory": "public",
   "functions": {
     "api/index.php": {
       "runtime": "vercel-php@0.7.4"
@@ -9,15 +11,15 @@
   "routes": [
     {
       "src": "/build/(.*)",
-      "dest": "/public/build/$1"
+      "dest": "/build/$1"
     },
     {
       "src": "/favicon.ico",
-      "dest": "/public/favicon.ico"
+      "dest": "/favicon.ico"
     },
     {
       "src": "/robots.txt",
-      "dest": "/public/robots.txt"
+      "dest": "/robots.txt"
     },
     {
       "src": "/(.*)",
@@ -25,8 +27,11 @@
     }
   ],
   "env": {
+    "APP_NAME": "FindJobPh",
     "APP_ENV": "production",
-    "APP_DEBUG": "true",
+    "APP_KEY": "base64:sE6esU4hZPKbNumyvpqhzh+qluwGAXIdSls+zP3zk3g=",
+    "APP_DEBUG": "false",
+    "APP_URL": "https://findjobph.vercel.app",
     "APP_CONFIG_CACHE": "/tmp/bootstrap/cache/config.php",
     "APP_EVENTS_CACHE": "/tmp/bootstrap/cache/events.php",
     "APP_PACKAGES_CACHE": "/tmp/bootstrap/cache/packages.php",
@@ -35,6 +40,8 @@
     "VIEW_COMPILED_PATH": "/tmp/storage/framework/views",
     "SESSION_DRIVER": "cookie",
     "LOG_CHANNEL": "stderr",
-    "CACHE_STORE": "array"
+    "CACHE_STORE": "array",
+    "DB_CONNECTION": "sqlite",
+    "DB_DATABASE": "/tmp/database.sqlite"
   }
 }

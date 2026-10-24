@@ -23,7 +23,12 @@ foreach ($tmpDirs as $dir) {
 if (getenv('DB_CONNECTION') === 'sqlite' || empty(getenv('DB_CONNECTION'))) {
     $sqliteDb = getenv('DB_DATABASE') ?: '/tmp/database.sqlite';
     if (!file_exists($sqliteDb) && str_starts_with($sqliteDb, '/tmp')) {
-        @touch($sqliteDb);
+        $sourceDb = __DIR__ . '/../database/database.sqlite';
+        if (file_exists($sourceDb)) {
+            @copy($sourceDb, $sqliteDb);
+        } else {
+            @touch($sqliteDb);
+        }
     }
 }
 
