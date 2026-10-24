@@ -1,6 +1,13 @@
 # FindJobPh 🇵🇭
 ### Philippine Job Posting & Application Platform with Requirement-Gated Applications
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-findjobph.vercel.app-blue?style=for-the-badge&logo=vercel)](https://findjobph.vercel.app)
+[![Laravel](https://img.shields.io/badge/Laravel-12.x-red?style=for-the-badge&logo=laravel)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-8.3-indigo?style=for-the-badge&logo=php)](https://php.net)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com)
+
+🌐 **Live Demo Website**: [https://findjobph.vercel.app](https://findjobph.vercel.app)
+
 **FindJobPh** is a modern full-stack web application designed for the Philippine job market. It solves credential mismatches and back-and-forth hiring friction by introducing a **Requirement-Gated Application Engine** — ensuring applicants have all mandatory Philippine workplace credentials (e.g., Valid ID, NBI Clearance, Driver's License, Barangay Clearance, Resume, Portfolio) uploaded and verified before submitting an application.
 
 ---
