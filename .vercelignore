@@ -1,0 +1,7 @@
+.git
+.github
+.agents
+.claude
+.kiro
+node_modules
+tests
